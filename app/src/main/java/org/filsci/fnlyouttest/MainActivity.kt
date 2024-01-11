@@ -15,29 +15,37 @@ import org.filsci.fnlyouttest.ui.theme.FnLyoutTestTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            FnLyoutTestTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)  // 初始化视图
+        var gameInterface = this.findViewById(R.id.gameGrid)
+        var btnMoveUp = this.findViewById(R.id.btnMoveUp)
+        var btnMoveDown = this.findViewById(R.id.btnMoveDown)
+        var btnMoveLeft = this.findViewById(R.id.btnMoveLeft)
+        var btnMoveRight = this.findViewById(R.id.btnMoveRight)
+
+        // 设置方向按钮的点击监听器
+        btnMoveUp.setOnClickListener { btnMoveUp() }
+        btnMoveDown.setOnClickListener { btnMoveDown() }
+        btnMoveLeft.setOnClickListener { btnMoveDown() }
+        btnMoveRight.setOnClickListener { btnMoveDown() }
+
+        //TODO:初始化游戏板()
+        //TODO:更新游戏板()
+    }
+
+    // 初始化游戏界面
+    private fun initializeInterface() {
+//TODO:初始化
+    }
+
+    //TODO:更新游戏界面
+    private fun updateInterface() {
+        //TODO:更新逻辑
+    }
+    private fun btnMoveUp() {
+
+        updateInterface()
+    }
+
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FnLyoutTestTheme {
-        Greeting("Android")
-    }
-}
