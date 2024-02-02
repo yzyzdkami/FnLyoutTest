@@ -6,37 +6,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-    <GridLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+
+        <TextView
+                android:id="@+id/gameTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2048"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                tools:ignore="MissingConstraints"
+        />
+
+    <RelativeLayout
             android:id="@+id/gameGrid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnCount="4"
-            android:rowCount="4"
             android:layout_weight="1"
             android:layout_gravity="center">
 
-        <!-- blocks -->
-        <Button
-                android:id="@+id/block_00"
-                style="@style/GameBlock" />
-
+        <!-- operate buttons -->
         <Button
                 android:id="@+id/btnMoveLeft"
                 android:text="左移"
+                android:layout_toLeftOf="@id/btnMoveDown"
+                android:layout_above="@id/btnMoveDown"
                 style="@style/ControlButton" />
         <Button
                 android:id="@+id/btnMoveRight"
                 android:text="右移"
+                android:layout_toRightOf="@id/btnMoveDown"
+                android:layout_above="@id/btnMoveDown"
                 style="@style/ControlButton" />
         <Button
                 android:id="@+id/btnMoveUp"
                 android:text="上移"
+                android:layout_above="@id/btnCenterHide"
+                android:layout_centerInParent="true"
                 style="@style/ControlButton" />
+        <Button
+                android:id="@+id/btnCenterHide"
+                android:text="隐藏"
+                android:layout_above="@id/btnMoveDown"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                style="@style/ControlButton"/>
         <Button
                 android:id="@+id/btnMoveDown"
                 android:text="下移"
+                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
                 style="@style/ControlButton" />
 
-    </GridLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
